@@ -3,7 +3,8 @@ const express = require("express");
 require("express-async-errors");
 const app = express();
 const cors = require("cors");
-const playersMMRRouter = require("./controllers/PlayersMMR");
+const playersRouter = require("./controllers/Players");
+const MMRRouter = require("./controllers/MMR");
 const middleware = require("./utils/middleware");
 const logger = require("./utils/logger");
 const mongoose = require("mongoose");
@@ -26,7 +27,8 @@ app.use(express.static("build"));
 app.use(express.json());
 app.use(middleware.requestLogger);
 
-app.use("/api/players", playersMMRRouter);
+app.use("/api/players", playersRouter);
+app.use("/api/MMR", MMRRouter);
 
 app.use(middleware.unknownEndPoint);
 app.use(middleware.errorHandler);

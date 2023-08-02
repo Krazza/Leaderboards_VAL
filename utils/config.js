@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const PORT = process.env.PORT;
+const REGION = process.env.REGION;
 const username = encodeURIComponent(process.env.ATLAS_U);
 const password = encodeURIComponent(process.env.ATLAS_P);
 
@@ -8,5 +9,6 @@ const MONGO_URI = `mongodb+srv://${username}:${password}@val.5wclqoc.mongodb.net
 
 module.exports = {
     PORT,
-    URI : MONGO_URI
+    URI : MONGO_URI,
+    REGION
 }
