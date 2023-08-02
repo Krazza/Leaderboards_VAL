@@ -14,4 +14,8 @@ playersMMRRouter.get("/:name/:tag", async (request, response) => {
     response.status(200).json(playerData);
 });
 
+playersMMRRouter.post("/", async (request, response) => {
+    
+})
+
 module.exports = playersMMRRouter;
