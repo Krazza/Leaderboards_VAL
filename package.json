@@ -19,6 +19,7 @@
     "mongodb": "^5.7.0",
     "mongoose": "^7.4.1",
     "mongoose-unique-validator": "^4.0.0",
+    "node-cache": "^5.1.2",
     "unofficial-valorant-api": "^2.3.0-stable.0"
   },
   "devDependencies": {

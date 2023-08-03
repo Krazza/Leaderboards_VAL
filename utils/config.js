@@ -1,5 +1,7 @@
 require("dotenv").config();
+const NodeCache = require("node-cache");
 
+const MMRCache = new NodeCache();
 const PORT = process.env.PORT;
 const REGION = process.env.REGION;
 const username = encodeURIComponent(process.env.ATLAS_U);
@@ -10,5 +12,6 @@ const MONGO_URI = `mongodb+srv://${username}:${password}@val.5wclqoc.mongodb.net
 module.exports = {
     PORT,
     URI : MONGO_URI,
-    REGION
+    REGION,
+    MMRCache
 }

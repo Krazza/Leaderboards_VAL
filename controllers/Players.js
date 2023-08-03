@@ -1,4 +1,5 @@
 const playersRouter = require("express").Router();
+const config = require("../utils/config");
 const { default: mongoose } = require("mongoose");
 const { Player } = require("../models/Player");
 
@@ -31,6 +32,7 @@ playersRouter.post("/", async (request, response) => {
         })
         const savedPlayer = await newPlayer.save();
         response.status(201).json(savedPlayer);
+        config.MMRCache.flushAll();
     }
 });
 
