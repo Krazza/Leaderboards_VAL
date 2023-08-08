@@ -17,6 +17,7 @@ MMRRouter.get("/", async (request, response) => {
             givenName.replace(" ", "%20");
             const VAPI = new HenrikValorantAPI();
             const playerData = await VAPI.getMMR({ version, region, name : givenName, tag});
+
             playersMMRData.push({
                 givenName : playerData.data.name,
                 tag : playerData.data.tag,
@@ -24,6 +25,7 @@ MMRRouter.get("/", async (request, response) => {
                     currentTier : playerData.data.current_data.currenttier,
                     currentTierPatched : playerData.data.current_data.currenttierpatched,
                     elo : playerData.data.current_data.elo,
+                    images : playerData.data.current_data.images,
                     highestRank : {
                         tier : playerData.data.highest_rank.tier,
                         patchedTier : playerData.data.highest_rank.patched_tier,
