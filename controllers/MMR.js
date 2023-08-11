@@ -17,7 +17,8 @@ MMRRouter.get("/", async (request, response) => {
             givenName.replace(" ", "%20");
             const VAPI = new HenrikValorantAPI();
             const playerData = await VAPI.getMMR({ version, region, name : givenName, tag});
-
+            if(playerData.data === null)
+                continue;
             playersMMRData.push({
                 givenName : playerData.data.name,
                 tag : playerData.data.tag,
@@ -59,7 +60,9 @@ MMRRouter.get("/:name/:tag", async (request, response) => {
             const region = config.REGION;
             const VAPI = new HenrikValorantAPI();
             const newPlayerData = await VAPI.getMMR({ version, region, name, tag });
-            const formattedPlayer = {
+            
+            if(newPlayerData.data !== null) {
+                const formattedPlayer = {
                 givenName : newPlayerData.data.name,
                 tag : newPlayerData.data.tag,
                 MMRData : {
@@ -75,6 +78,9 @@ MMRRouter.get("/:name/:tag", async (request, response) => {
                 }
             }
             response.status(200).json(formattedPlayer);
+        } else {
+            response.status(404).json({ error : "player not found (probably changed name)"})
+        }
         }
     }
 });
