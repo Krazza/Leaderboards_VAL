@@ -2,7 +2,7 @@ require("dotenv").config();
 const NodeCache = require("node-cache");
 
 const MMRCache = new NodeCache();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3005;
 const REGION = process.env.REGION;
 const username = encodeURIComponent(process.env.ATLAS_U);
 const password = encodeURIComponent(process.env.ATLAS_P);
