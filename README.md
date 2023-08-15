@@ -1,5 +1,7 @@
 # Valorant Leaderboards (x.08.2023)
 ![Leaderboards image](./resources/img/Leaderboards.png)
+
+## <a href="https://leaderboards-5b8x.onrender.com/"> Live link </a>
 ## Description
 A personal MERN-stack project created to compare in-game ratings and player statistics of our small friend group. Build using <a href="https://github.com/Henrik-3/unofficial-valorant-api/tree/main">unofficial game API</a> and official<a href="https://www.riotgames.com/en/DevRel/valorant-api-launch"> Riot Games API</a>.
 
